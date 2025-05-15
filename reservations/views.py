@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from reservations.models import Reservation, Ticket
+from reservations.serializers import ReservationSerializer, TicketSerializer
 
-# Create your views here.
+
+class ReservationViewSet(viewsets.ModelViewSet):
+    queryset = Reservation.objects.all()
+    serializer_class = ReservationSerializer
+
+
+class TicketViewSet(viewsets.ModelViewSet):
+    queryset = Ticket.objects.all()
+    serializer_class = TicketSerializer
