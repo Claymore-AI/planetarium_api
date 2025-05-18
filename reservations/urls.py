@@ -3,7 +3,6 @@ from reservations.views import ReservationViewSet, TicketViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-
 router.register("reservations", ReservationViewSet)
 router.register("tickets", TicketViewSet)
 

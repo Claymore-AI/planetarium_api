@@ -22,9 +22,21 @@ class ShowThemeSerializer(serializers.ModelSerializer):
 
 
 class ShowSessionSerializer(serializers.ModelSerializer):
-    astronomy_show = AstronomyShowSerializer()
-    planetarium_dome = PlanetariumDomeSerializer()
+    astronomy_show = AstronomyShowSerializer(read_only=True)
+    planetarium_dome = PlanetariumDomeSerializer(read_only=True)
+
+    astronomy_show_id = serializers.PrimaryKeyRelatedField(
+        queryset=AstronomyShow.objects.all(), write_only=True, source="astronomy_show"
+    )
+    planetarium_dome_id = serializers.PrimaryKeyRelatedField(
+        queryset=PlanetariumDome.objects.all(), write_only=True, source="planetarium_dome"
+    )
 
     class Meta:
         model = ShowSession
-        fields = ("id", "astronomy_show", "planetarium_dome", "show_time")
+        fields = (
+            "id",
+            "astronomy_show", "astronomy_show_id",
+            "planetarium_dome", "planetarium_dome_id",
+            "show_time",
+        )
