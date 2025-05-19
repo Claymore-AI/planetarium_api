@@ -31,25 +31,25 @@ Manage all models through the built-in Django admin interface.
 
 # Quick Start
 
-# Клонування репозиторію
+# # Clone the repository
     https://github.com/Claymore-AI/planetarium_api
     cd planetarium
 
-# Створення віртуального середовища
+# Create and activate virtual environment
     
     python -m venv venv
-    source venv/bin/activate      # для Linux/macOS
-# або
-    venv\Scripts\activate.bat     # для Windows
+    source venv/bin/activate      # for Linux/macOS
+# or
+    venv\Scripts\activate.bat     # for Windows
 
-# Встановлення залежностей
+# Install dependencies
     pip install -r requirements.txt
 
-# Міграції та створення суперкористувача
+# Run migrations and create a superuser
     python manage.py migrate
     python manage.py createsuperuser
 
-# Запуск сервера
+# Start the development server
     python manage.py runserver
 
 # Run with Docker
